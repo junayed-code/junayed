@@ -2,26 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Rubik font faces */
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-Regular.woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-Medium.woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-SemiBold.woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-Bold.woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik/Rubik-ExtraBold.woff");
+  font-style: normal;
+  font-weight: 800;
+  font-display: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Urbanist font faces */
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist/Urbanist-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist/Urbanist-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist/Urbanist-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist/Urbanist-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist/Urbanist-ExtraBold.ttf");
+  font-style: normal;
+  font-weight: 800;
+  font-display: auto;
+}
+@font-face {
+  font-family: "Urbanist";
+  src: url("../fonts/Urbanist/Urbanist-Black.ttf");
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
 }
