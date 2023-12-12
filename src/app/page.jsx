@@ -1,7 +1,13 @@
+import Hero from "@/components/sections/hero";
+import Projects from "@/components/sections/projects";
+import Experience from "@/components/sections/experience";
+
 export default function Home() {
   return (
     <main>
-      <h1 className="text-4xl font-bold">Hello</h1>
+      <Hero />
+      <Experience />
+      <Projects />
     </main>
   );
 }
