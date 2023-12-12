@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .animation-duration-20 {
+    animation-duration: 20s !important;
+  }
+  .animation-duration-6 {
+    animation-duration: 6s !important;
+  }
+}
+
 /* Rubik font faces */
 @font-face {
   font-family: "Rubik";
