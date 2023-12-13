@@ -1,4 +1,5 @@
 import Nav from "@/components/nav";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
         <Nav />
         {children}
       </body>
+      <Toaster />
     </html>
   );
 }
