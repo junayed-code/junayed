@@ -5,9 +5,9 @@ import Section from "../section";
 
 export default function Hero() {
   return (
-    <Section className="mt-[74px] flex flex-col md:flex-row gap-y-10">
+    <Section id="hero" className="mt-[74px] flex flex-col md:flex-row gap-y-10">
       <div className="md:w-1/2">
-        <h5 className="text-xl font-medium font-secondary text-emerald-300">
+        <h5 className="text-xl font-semibold font-secondary text-emerald-300">
           Hi, I am
         </h5>
         <h1 className="text-5xl md:text-6xl font-secondary font-black text-slate-100 mb-3">
@@ -16,7 +16,7 @@ export default function Hero() {
         <h3 className="text-xl md:text-2xl font-semibold mb-5 text-slate-300">
           Self-Taught Front-End Web Developer
         </h3>
-        <p className="text-lg max-w-xl font-medium">
+        <p className="sm:text-lg max-w-xl font-medium">
           I'm a front-end{" "}
           <Link
             href="https://react.dev"
@@ -38,7 +38,7 @@ export default function Hero() {
           height={350}
           width={350}
           priority
-          className="mx-auto md:mr-0 border-2 border-emerald-400 duration-300 md:hover:shadow-[10px_10px_#34d399] cursor-crosshair"
+          className="mx-auto md:mr-0 border-2 border-emerald-400 duration-300 md:hover:shadow-[4px_4px_#34d399] md:hover:-translate-x-1 md:hover:-translate-y-1 cursor-crosshair"
         />
       </div>
     </Section>
