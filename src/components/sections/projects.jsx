@@ -39,7 +39,7 @@ const ProjectCard = ({ project }) => {
 export default function Projects() {
   return (
     <Section id="projects">
-      <h2 className="text-3xl sm:text-4xl text-slate-100 font-bold text-center mb-4">
+      <h2 className="text-3xl sm:text-4xl text-slate-100 font-bold font-secondary text-center mb-4">
         what i've accomplished
       </h2>
       <p className="max-w-2xl mx-auto sm:text-lg text-center">
