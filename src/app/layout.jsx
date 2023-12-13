@@ -13,8 +13,8 @@ export default function RootLayout({ children }) {
       <body className="bg-slate-900 text-slate-400 font-primary">
         <Nav />
         {children}
+        <Toaster />
       </body>
-      <Toaster />
     </html>
   );
 }
