@@ -34,6 +34,15 @@ export default function Nav() {
               Contact
             </Link>
           </li>
+          <li>
+            <Link
+              href="/resume.pdf"
+              target="_blank"
+              className="inline-block text-emerald-400 border border-emerald-400 px-3 py-1 hover:shadow-[4px_4px_rgb(52,211,153)] hover:-translate-x-1 hover:-translate-y-1 duration-200"
+            >
+              Resume
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
