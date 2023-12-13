@@ -1,4 +1,5 @@
 import projects from "@/data/projects";
+import Section from "../section";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,10 +38,7 @@ const ProjectCard = ({ project }) => {
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="w-full md:max-w-4xl lg:max-w-[1110px] mx-auto py-16 md:py-20 px-5"
-    >
+    <Section id="projects">
       <h2 className="text-3xl sm:text-4xl text-slate-100 font-bold text-center mb-4">
         what i've accomplished
       </h2>
@@ -54,6 +52,6 @@ export default function Projects() {
           <ProjectCard key={project.name} project={project} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

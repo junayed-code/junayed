@@ -1,6 +1,8 @@
+import Section from "../section";
+
 export default function Experience() {
   return (
-    <section id="experience" className="py-16 md:py-20 px-5">
+    <Section id="experience">
       <h2 className="text-3xl sm:text-4xl font-secondary font-bold text-center text-slate-100 mb-4">
         experience of my dev journey
       </h2>
@@ -47,6 +49,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
