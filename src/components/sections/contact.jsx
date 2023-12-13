@@ -64,7 +64,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="self-start border border-emerald-400 bg-slate-900 text-slate-100 py-3 px-5 text-lg hover:shadow-[4px_4px_rgb(52,211,153)] hover:-translate-x-1 hover:-translate-y-1 duration-200"
+            className="self-start font-medium border border-slate-600 bg-slate-900 py-3 px-5 text-lg hover:text-emerald-400 hover:border-emerald-400 hover:shadow-[3px_3px_rgb(52,211,153)] hover:-translate-x-0.5 hover:-translate-y-0.5 duration-200"
           >
             send message
           </button>
