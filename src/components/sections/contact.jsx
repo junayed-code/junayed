@@ -3,14 +3,69 @@
 import Link from "next/link";
 import Section from "../section";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
+import { useEffect, useState } from "react";
+
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+
+const defaultCount = { count: 0, date: new Date() };
+const today = new Date();
 
 export default function Contact() {
-  const handleSubmit = e => {
+  const [isSubmitting, setSubmitting] = useState(false);
+  const [submitCount, setSubmitCount] = useState(defaultCount);
+
+  useEffect(() => {
+    const value = localStorage.getItem("_Submit_Count");
+    const submitCount = value !== null ? JSON.parse(value) : defaultCount;
+
+    submitCount.date = new Date(submitCount.date);
+    const { date } = submitCount;
+
+    if (
+      today.getMonth() === date.getMonth() &&
+      today.getFullYear() === date.getFullYear()
+    ) {
+      if (today.getDate() > date.getDate()) {
+        localStorage.setItem("_Submit_Count", JSON.stringify(defaultCount));
+      } else {
+        setSubmitCount(submitCount);
+      }
+    }
+  }, []);
+
+  const handleSubmit = async e => {
     e.preventDefault();
-    setTimeout(() => {
+    const emailTemplate = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    if (!(submitCount.count < 2)) {
+      return toast.error("You can only send two emails each day.");
+    }
+
+    setSubmitting(true);
+    const toastID = toast.loading("Loading", { duration: Infinity });
+    try {
+      // Send email through emailjs library
+      await emailjs.send(serviceID, templateID, emailTemplate, publicKey);
+      setSubmitCount(prev => {
+        const newCount = { ...prev, count: prev.count + 1 };
+        localStorage.setItem("_Submit_Count", JSON.stringify(newCount));
+        return newCount;
+      });
+      toast.dismiss(toastID);
       toast.success("Email sent successfully!", { duration: 3200 });
-      e.target?.reset();
-    }, 1200);
+    } catch (error) {
+      toast.dismiss(toastID);
+      toast.error(error.message, { duration: 3200 });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -64,7 +119,8 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="self-start font-medium border border-slate-600 bg-slate-900 py-3 px-5 text-lg hover:text-emerald-400 hover:border-emerald-400 hover:shadow-[3px_3px_rgb(52,211,153)] hover:-translate-x-0.5 hover:-translate-y-0.5 duration-200"
+            disabled={isSubmitting}
+            className="self-start font-medium border border-slate-600 bg-slate-900 py-3 px-5 text-lg enabled:hover:text-emerald-400 enabled:hover:border-emerald-400 enabled:hover:shadow-[3px_3px_rgb(52,211,153)] enabled:hover:-translate-x-0.5 enabled:hover:-translate-y-0.5 disabled:opacity-40 duration-200"
           >
             send message
           </button>
