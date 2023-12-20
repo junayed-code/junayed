@@ -6,12 +6,12 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="w-full md:max-w-4xl lg:max-w-[1110px] mx-auto py-16 md:py-24 px-5 mt-[74px] flex flex-col md:flex-row gap-y-10"
+      className="w-full md:max-w-4xl lg:max-w-[1110px] mx-auto py-16 md:py-24 px-5 mt-[74px] flex flex-col md:flex-row gap-y-10 scroll-mt-6"
     >
       <div className="md:w-1/2">
-        <h5 className="text-xl font-semibold font-secondary text-emerald-300">
+        <span className="block text-xl font-semibold font-secondary text-emerald-300">
           Hi, I am
-        </h5>
+        </span>
         <h1 className="text-5xl md:text-[54px] lg:text-6xl font-secondary font-black text-slate-100 mb-3">
           junayed akbor
         </h1>
