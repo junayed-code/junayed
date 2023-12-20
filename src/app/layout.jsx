@@ -1,6 +1,7 @@
 import Nav from "@/components/nav/index";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import Footer from "@/components/footer";
 
 /**@type {import("next").Metadata} */
 export const metadata = {
@@ -9,14 +10,14 @@ export const metadata = {
   creator: "Junayed Akbor",
   description:
     "Junayed Akbor is a React-based Front-End web developer who builds modern, responsive, and innovative web applications.",
-  keywords: ["React", "Next JS", "Web", "Developer", "Front-End", "MERN"],
+  keywords: ["Junayed", "Akbor", "Web", "Developer", "Front-End", "MERN"],
   openGraph: {
     type: "website",
     url: "/",
     siteName: "Junayed Akbor",
     locale: "en_bg",
     description:
-      "Hi there, I'm a front-end React-based web developer who enjoys exploring new technologies on the internet.",
+      "Junayed Akbor is a React-based Front-End web developer who builds modern, responsive, and innovative web applications.",
     images: [
       {
         url: "/og.png",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
       <body className="bg-slate-900 text-slate-400 font-primary">
         <Nav />
         {children}
+        <Footer />
         <Toaster />
       </body>
     </html>
