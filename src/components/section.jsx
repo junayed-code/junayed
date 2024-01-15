@@ -1,3 +1,5 @@
+import Reveal from "./animate/reveal";
+
 /**
  *
  * @param {import("react").DetailsHTMLAttributes} param0
@@ -11,7 +13,7 @@ export default function Section({ className = "", children, ...rest }) {
         .concat(className)
         .trim()}
     >
-      {children}
+      <Reveal>{children}</Reveal>
     </section>
   );
 }
