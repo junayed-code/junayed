@@ -6,6 +6,7 @@ import logoImage from "@/images/logo.svg";
 import NavItems from "./navItems";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Nav() {
   const [isOpenMenu, setOpenMenu] = useState(false);
@@ -28,13 +29,28 @@ export default function Nav() {
       <nav className="flex items-center justify-between px-5 py-4 md:max-w-4xl lg:max-w-[1110px] mx-auto">
         <div>
           <Link href="/">
-            <Image
-              src={logoImage}
-              alt="Logo image"
-              width={42}
-              height={42}
-              priority
-            />
+            <motion.div
+              transition={{
+                delay: 0.9,
+                duration: 0.3,
+                ease: [0, 0.8, 0.2, 0.6],
+                scale: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 5,
+                },
+              }}
+              initial={{ opacity: 0, scale: 0.2 }}
+              animate={{ opacity: 1, scale: 1 }}
+            >
+              <Image
+                src={logoImage}
+                alt="Logo image"
+                width={42}
+                height={42}
+                priority
+              />
+            </motion.div>
           </Link>
         </div>
 

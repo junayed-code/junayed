@@ -1,11 +1,36 @@
 import config from "@/config";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+/**@type {import("framer-motion").Variants} */
+const variants = {
+  start: {
+    y: 8,
+    opacity: 0,
+    rotate: -15,
+    transformOrigin: "center left",
+  },
+  end: {
+    y: 0,
+    rotate: 0,
+    opacity: 1,
+  },
+};
+
+/**@type {import("framer-motion").Transition} */
+const transition = { duration: 0.4, ease: "easeOut" };
 
 const NavItems = ({ className, onClick }) => {
   return (
     <ul className={className}>
-      {config.navItems.map(item => (
-        <li key={item.path}>
+      {config.navItems.map((item, i) => (
+        <motion.li
+          key={item.path}
+          variants={variants}
+          initial="start"
+          animate="end"
+          transition={{ ...transition, delay: 0.15 * i }}
+        >
           <Link
             onClick={onClick}
             href={item.path}
@@ -13,9 +38,14 @@ const NavItems = ({ className, onClick }) => {
           >
             {item.text}
           </Link>
-        </li>
+        </motion.li>
       ))}
-      <li>
+      <motion.li
+        variants={variants}
+        initial="start"
+        animate="end"
+        transition={{ ...transition, delay: 0.45 }}
+      >
         <Link
           onClick={onClick}
           href="/resume.pdf"
@@ -24,7 +54,7 @@ const NavItems = ({ className, onClick }) => {
         >
           Resume
         </Link>
-      </li>
+      </motion.li>
     </ul>
   );
 };
