@@ -66,7 +66,7 @@ export default function Hero() {
         >
           <Image
             src={profileImage}
-            alt="Junayed profile"
+            alt="Junayed Akbor's image"
             height={350}
             width={350}
             priority
