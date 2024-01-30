@@ -2,8 +2,19 @@ import wislioImage from "@/images/projects/wislio.png";
 import voltRealmImage from "@/images/projects/volt-realm.png";
 import ticTacToeImage from "@/images/projects/tic-tac-toe.png";
 import eventfulBlissImage from "@/images/projects/eventful-bliss.png";
+import restCountriesAPI from "@/images/projects/rest-countries-api.png";
 import neotericCalculatorImage from "@/images/projects/neoteric-calculator.png";
 
+/**
+ * @typedef Project
+ * @property {string} name
+ * @property {string} image
+ * @property {string} live
+ * @property {string} description
+ * @property {string} technologies
+ */
+
+/**@type {Project[]} */
 const projects = [
   {
     name: "Wislio",
@@ -27,6 +38,14 @@ const projects = [
     description:
       "Tic Tac Toe game has a computer player with the minimax algorithm.",
     technologies: ["HTML", "CSS", "JavaScript", "jQuery", "MiniMax Algorithm"],
+  },
+  {
+    name: "REST Countries API",
+    image: restCountriesAPI,
+    live: "https://countryquery.vercel.app/",
+    description:
+      "It's a RESTful countries API project that provides necessary information about countries.",
+    technologies: ["React.js", "Next.js", "Tailwind", "TypeScript"],
   },
   {
     name: "Volt Realm",
