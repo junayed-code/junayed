@@ -70,6 +70,7 @@ export default function Hero() {
             height={350}
             width={350}
             priority
+            placeholder="blur"
             className="border-2 border-emerald-400 duration-300 md:hover:shadow-[4px_4px_#34d399] md:hover:-translate-x-1 md:hover:-translate-y-1 cursor-crosshair"
           />
         </motion.div>

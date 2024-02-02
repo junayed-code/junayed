@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ["'Rubik'", "sans-serif"],
-        secondary: ["'Urbanist'", "sans-serif"],
+        primary: ["var(--font-rubik)"],
+        secondary: ["var(--font-urbanist)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
