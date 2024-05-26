@@ -1,7 +1,10 @@
+import type { Project } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
 
-const ProjectCard = ({ project }) => {
+type ProjectCardProps = { project: Project };
+
+const ProjectCard = ({ project }: ProjectCardProps) => {
   const { name, image, live, description, technologies } = project;
 
   return (
@@ -19,7 +22,7 @@ const ProjectCard = ({ project }) => {
           </h3>
           <p className="text-sm sm:text-base">{description}</p>
           <div className="mt-3 sm:mt-4 flex gap-2 flex-wrap">
-            {technologies?.map(tech => (
+            {technologies?.map((tech) => (
               <span
                 key={tech}
                 className="px-3 py-1 rounded-3xl bg-emerald-100 text-emerald-600 text-xs sm:text-sm"

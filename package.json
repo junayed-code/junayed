@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.0",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.4.5"
   }
 }

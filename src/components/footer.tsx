@@ -1,9 +1,9 @@
+import Link from "next/link";
 import Image from "next/image";
 import githubIcon from "@/images/icons/github.svg";
 import facebookIcon from "@/images/icons/facebook.svg";
 import linkedinIcon from "@/images/icons/linkedin.svg";
 import upArrowIcon from "@/images/icons/up-arrow.svg";
-import Link from "next/link";
 
 export default function Footer() {
   return (

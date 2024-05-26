@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logoImage from "@/images/logo.svg";
-import NavItems from "./navItems";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
+
+import { cn } from "@/utils";
+import NavItems from "./navItems";
+import logoImage from "@/images/logo.svg";
 
 export default function Nav() {
   const [isOpenMenu, setOpenMenu] = useState(false);
 
   const handleToggleMenu = () => {
-    setOpenMenu(prev => {
+    setOpenMenu((prev) => {
       if (!prev) {
         document.body.classList.add("sm:pr-[17px]");
         document.documentElement.classList.add("overflow-hidden");
@@ -58,8 +59,9 @@ export default function Nav() {
           {/* Nav manu toggle button */}
           <div
             onClick={handleToggleMenu}
-            className={"nav-barger md:hidden z-40".concat(
-              isOpenMenu ? " open sm:pr-[17px]" : ""
+            className={cn(
+              "nav-berger md:hidden z-40",
+              isOpenMenu && "open sm:pr-[17px]"
             )}
           >
             <span></span>
@@ -67,8 +69,9 @@ export default function Nav() {
           </div>
 
           <div
-            className={"absolute inset-0 w-full h-screen bg-slate-900/70".concat(
-              !isOpenMenu ? " invisible opacity-0 pointer-events-none" : ""
+            className={cn(
+              "absolute inset-0 w-full h-screen bg-slate-900/70",
+              !isOpenMenu && "invisible opacity-0 pointer-events-none"
             )}
           ></div>
 
@@ -76,8 +79,9 @@ export default function Nav() {
           <NavItems className="hidden md:flex items-center gap-7 font-medium" />
           {/* Nav mobile manu items */}
           <NavItems
-            className={"md:hidden fixed top-0 right-0 h-screen w-80 bg-slate-900 flex flex-col items-center gap-7 font-medium p-6 pt-28  z-20 duration-200".concat(
-              isOpenMenu ? " translate-x-0" : " translate-x-full"
+            className={cn(
+              "md:hidden fixed top-0 right-0 h-screen w-80 bg-slate-900 flex flex-col items-center gap-7 font-medium p-6 pt-28  z-20 duration-200",
+              isOpenMenu ? "translate-x-0" : "translate-x-full"
             )}
             onClick={handleToggleMenu}
           />

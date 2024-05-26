@@ -1,9 +1,9 @@
 import config from "@/config";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import type { Variants, Transition } from "framer-motion";
 
-/**@type {import("framer-motion").Variants} */
-const variants = {
+const variants: Variants = {
   start: {
     y: 8,
     opacity: 0,
@@ -17,10 +17,14 @@ const variants = {
   },
 };
 
-/**@type {import("framer-motion").Transition} */
-const transition = { duration: 0.4, ease: "easeOut" };
+const transition: Transition = { duration: 0.4, ease: "easeOut" };
 
-const NavItems = ({ className, onClick }) => {
+type NavItemsProps = {
+  className?: string;
+  onClick?(): void;
+};
+
+const NavItems = ({ className, onClick }: NavItemsProps) => {
   return (
     <ul className={className}>
       {config.navItems.map((item, i) => (

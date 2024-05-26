@@ -1,16 +1,16 @@
+import type { Metadata } from "next";
 import config from "@/config";
 
-/**@type {import("next").Metadata} */
-export const metadata = {
-  metadataBase: new URL("https://junayedakbor.vercel.app"),
+export const metadata: Metadata = {
+  metadataBase: new URL(config.baseURL),
   title: `Junayed Akbor | ${config.title}`,
   creator: "Junayed Akbor",
-  authors: [{ name: "Junayed Akbor", url: "https://junayedakbor.vercel.app" }],
+  authors: { name: "Junayed Akbor", url: "https://junayedakbor.vercel.app" },
   description: config.description,
-  keywords: ["Junayed Akbor", "junayedakbor", "junayedakbor.vercel.app"],
+  keywords: ["junayed", "junayed akbor", "Junayed", "Junayed Akbor"],
   openGraph: {
-    type: "website",
     url: "/",
+    type: "website",
     siteName: "Junayed Akbor",
     locale: "en_bg",
     description: config.description,

@@ -5,16 +5,7 @@ import eventfulBlissImage from "@/images/projects/eventful-bliss.png";
 import restCountriesAPI from "@/images/projects/rest-countries-api.png";
 import neotericCalculatorImage from "@/images/projects/neoteric-calculator.png";
 
-/**
- * @typedef Project
- * @property {string} name
- * @property {string} image
- * @property {string} live
- * @property {string} description
- * @property {string} technologies
- */
-
-/**@type {Project[]} */
+/** @type {import("@/types").Project[]} */
 const projects = [
   {
     name: "Wislio",

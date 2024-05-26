@@ -1,9 +1,10 @@
 "use client";
 
+import type React from "react";
+import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 
-/**@type {import('framer-motion').Variants} */
-const variants = {
+const variants: Variants = {
   hidden: {
     opacity: 0,
     y: 150,
@@ -20,7 +21,7 @@ const variants = {
   },
 };
 
-function Reveal({ children }) {
+function Reveal({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
       variants={variants}

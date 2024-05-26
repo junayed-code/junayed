@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import profileImage from "@/images/profile.jpg";
 import { motion } from "framer-motion";
+
+import profileImage from "@/images/profile.jpg";
 import config from "@/config";
 
 export default function Hero() {
@@ -59,7 +60,6 @@ export default function Hero() {
               type: "spring",
               damping: 4.25,
               bounce: 6,
-              // restDelta: 0.02,
             },
           }}
           className="w-fit mx-auto md:mr-0"

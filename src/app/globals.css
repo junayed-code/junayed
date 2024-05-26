@@ -9,7 +9,7 @@
 }
 
 @layer components {
-  .nav-barger {
+  .nav-berger {
     width: 36px;
     height: 32px;
     cursor: pointer;
@@ -19,7 +19,7 @@
     flex-direction: column;
     position: relative;
   }
-  .nav-barger span {
+  .nav-berger span {
     width: 100%;
     height: 3.6px;
     background-color: #cbd5e1;
@@ -27,21 +27,21 @@
     transition: all 200ms;
     position: absolute;
   }
-  .nav-barger span:first-child {
+  .nav-berger span:first-child {
     transform: translateY(-6.5px);
   }
-  .nav-barger span:last-child {
+  .nav-berger span:last-child {
     width: 80%;
     transform: translateY(6.5px);
   }
-  .nav-barger.open span {
+  .nav-berger.open span {
     align-items: center;
   }
-  .nav-barger.open span:first-child {
+  .nav-berger.open span:first-child {
     width: 90%;
     transform: translateY(0) rotate(45deg);
   }
-  .nav-barger.open span:last-child {
+  .nav-berger.open span:last-child {
     width: 90%;
     transform: translateY(0) rotate(-45deg);
   }

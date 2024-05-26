@@ -1,14 +1,15 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import Section from "../section";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { useEffect, useState } from "react";
 
-const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
+const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string;
+const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
 
 const defaultCount = { count: 0, date: new Date() };
 const today = new Date();
@@ -36,13 +37,11 @@ export default function Contact() {
     }
   }, []);
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const emailTemplate = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
+    const form = new FormData(e.currentTarget);
+    const formValues = Object.fromEntries(form.entries());
+    if (!formValues.name || !formValues.email || !formValues.message) return;
 
     if (!(submitCount.count < 2)) {
       return toast.error("You can only send two emails each day.");
@@ -52,15 +51,15 @@ export default function Contact() {
     const toastID = toast.loading("Loading", { duration: Infinity });
     try {
       // Send email through emailjs library
-      await emailjs.send(serviceID, templateID, emailTemplate, publicKey);
-      setSubmitCount(prev => {
+      await emailjs.send(serviceID, templateID, formValues, publicKey);
+      setSubmitCount((prev) => {
         const newCount = { ...prev, count: prev.count + 1 };
         localStorage.setItem("_Submit_Count", JSON.stringify(newCount));
         return newCount;
       });
       toast.dismiss(toastID);
       toast.success("Email sent successfully!", { duration: 3200 });
-    } catch (error) {
+    } catch (error: any) {
       toast.dismiss(toastID);
       toast.error(error.message, { duration: 3200 });
     } finally {
@@ -110,7 +109,7 @@ export default function Contact() {
           <textarea
             name="message"
             id="message"
-            rows="5"
+            rows={5}
             placeholder="Write your message"
             className="bg-transparent text-slate-400 outline-none px-4 py-3 border border-slate-600 focus:border-emerald-400 rounded-md"
             required

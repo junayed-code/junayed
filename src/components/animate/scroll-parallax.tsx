@@ -1,12 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import React from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
-import useDimension from "@/hooks/useDimension";
+import useDimension from "@hooks/useDimension";
 
-function ScrollParallax({ ratio = 0.6, children }) {
-  const targetRef = useRef();
-  const containerRef = useRef();
+type ScrollParallaxProps = {
+  ratio?: number;
+  children: React.ReactNode;
+};
+
+function ScrollParallax({ ratio = 0.6, children }: ScrollParallaxProps) {
+  const targetRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const { width: targetWidth } = useDimension(targetRef);
   const { width: containerWidth } = useDimension(containerRef);
   const { scrollYProgress } = useScroll({

@@ -1,7 +1,7 @@
-import Section from "@c/section";
+import Section from "@components/section";
 import projects from "@/data/projects";
-import ProjectCard from "@c/project-card";
-import ScrollParallax from "@c/animate/scroll-parallax";
+import ProjectCard from "@components/project-card";
+import ScrollParallax from "@components/animate/scroll-parallax";
 
 export default function Projects() {
   return (
@@ -15,7 +15,7 @@ export default function Projects() {
       </p>
 
       <ScrollParallax>
-        {projects.map(project => (
+        {projects.map((project) => (
           <ProjectCard key={project.name} project={project} />
         ))}
       </ScrollParallax>
