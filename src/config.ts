@@ -1,3 +1,5 @@
+import { Facebook, Github, Linkedin } from "lucide-react";
+
 const baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
@@ -19,6 +21,23 @@ export default {
     {
       path: "#contact",
       text: "Contact",
+    },
+  ],
+  socials: [
+    {
+      name: "GitHub",
+      icon: Github,
+      link: "https://github.com/junayed-code",
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      link: "https://www.facebook.com/junayedakbour",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      link: "https://www.linkedin.com/in/junayedakbor",
     },
   ],
 };
