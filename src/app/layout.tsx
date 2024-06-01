@@ -1,11 +1,11 @@
 import type React from "react";
-import Nav from "@components/nav";
-import Footer from "@components/footer";
-
 import { cn } from "@/utils";
-import { Toaster } from "react-hot-toast";
 import { urbanist, rubik } from "@/fonts";
 import "./globals.css";
+
+import Nav from "@components/nav";
+import Footer from "@components/footer";
+import { Toaster } from "react-hot-toast";
 
 export { metadata } from "@/app/metadata";
 
@@ -16,17 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          urbanist.variable,
-          rubik.variable,
-          "bg-slate-900 text-slate-400 font-primary"
-        )}
-      >
+      <body className={cn(urbanist.variable, rubik.variable, "font-primary")}>
         <Nav />
         {children}
         <Footer />
-        <Toaster />
+        <Toaster
+          toastOptions={{
+            success: { className: "min-w-fit max-w-md" },
+            error: { className: "min-w-fit max-w-md" },
+          }}
+        />
       </body>
     </html>
   );
