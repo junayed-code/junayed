@@ -1,0 +1,26 @@
+"use client";
+
+import React from "react";
+
+import { cn } from "@/utils";
+import { useScrollDirection } from "@hooks/useScrollDirection";
+
+type NavbarHeaderProps = React.HTMLAttributes<HTMLElement>;
+
+function NavbarHeader({ className, ...props }: NavbarHeaderProps) {
+  const scrollDirection = useScrollDirection({ threshold: 50 });
+  const isDown = scrollDirection === "down";
+
+  return (
+    <header
+      {...props}
+      className={cn(
+        "fixed top-0 left-0 w-full backdrop-blur-xl transition-transform duration-200 z-50",
+        isDown ? "-translate-y-full" : "translate-y-0",
+        className
+      )}
+    />
+  );
+}
+
+export default NavbarHeader;

@@ -3,7 +3,7 @@ import { cn } from "@/utils";
 import { urbanist, rubik } from "@/fonts";
 import "./globals.css";
 
-import Nav from "@components/nav";
+import Navbar from "@components/navbar";
 import Footer from "@components/footer";
 import { Toaster } from "react-hot-toast";
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(urbanist.variable, rubik.variable, "font-primary")}>
-        <Nav />
+        <Navbar />
         {children}
         <Footer />
         <Toaster

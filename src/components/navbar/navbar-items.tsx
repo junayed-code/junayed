@@ -1,7 +1,10 @@
-import config from "@/config";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Variants, Transition } from "framer-motion";
+
+import { Button } from "@ui/button";
+
+import config from "@/config";
 
 const variants: Variants = {
   start: {
@@ -24,24 +27,21 @@ type NavItemsProps = {
   onClick?(): void;
 };
 
-const NavItems = ({ className, onClick }: NavItemsProps) => {
+const NavbarItems = ({ className, onClick }: NavItemsProps) => {
   return (
     <ul className={className}>
       {config.navItems.map((item, i) => (
         <motion.li
           key={item.path}
           variants={variants}
+          onClick={onClick}
           initial="start"
           animate="end"
           transition={{ ...transition, delay: 0.15 * i }}
         >
-          <Link
-            onClick={onClick}
-            href={item.path}
-            className="hover:text-emerald-400"
-          >
+          <a href={item.path} className="hover:text-primary">
             {item.text}
-          </Link>
+          </a>
         </motion.li>
       ))}
       <motion.li
@@ -50,17 +50,14 @@ const NavItems = ({ className, onClick }: NavItemsProps) => {
         animate="end"
         transition={{ ...transition, delay: 0.45 }}
       >
-        <Link
-          onClick={onClick}
-          href="/resume.pdf"
-          target="_blank"
-          className="inline-block text-emerald-400 border border-emerald-400 px-3 py-1 hover:shadow-[2.5px_2.5px_rgb(52,211,153)] hover:-translate-x-0.5 hover:-translate-y-0.5 duration-200"
-        >
-          Resume
-        </Link>
+        <Button asChild>
+          <Link onClick={onClick} href="/resume.pdf" target="_blank">
+            Resume
+          </Link>
+        </Button>
       </motion.li>
     </ul>
   );
 };
 
-export default NavItems;
+export default NavbarItems;
