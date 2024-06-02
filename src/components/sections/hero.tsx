@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
-import profileImage from "@/images/profile.jpg";
 import config from "@/config";
+import profileImage from "@/images/profile.jpg";
 
 export default function Hero() {
   return (
@@ -28,7 +27,7 @@ export default function Hero() {
           transition={{ duration: 0.4, delay: 0.15 }}
           className="text-5xl md:text-[54px] lg:text-6xl font-secondary font-black text-slate-100 mb-3"
         >
-          <Link href="/">junayed akbor</Link>
+          junayed akbor
         </motion.h1>
         <motion.h3
           initial={{ y: 20, opacity: 0 }}
@@ -65,13 +64,13 @@ export default function Hero() {
           className="w-fit mx-auto md:mr-0"
         >
           <Image
-            src={profileImage}
-            alt="Junayed Akbor's image"
+            priority
             height={350}
             width={350}
-            priority
             placeholder="blur"
-            className="border-2 border-emerald-400 duration-300 md:hover:shadow-[4px_4px_#34d399] md:hover:-translate-x-1 md:hover:-translate-y-1 cursor-crosshair"
+            src={profileImage}
+            alt="Junayed Akbor's image"
+            className="border-2 border-primary duration-300 md:hover:shadow-primary md:hover:shadow-[4px_4px] md:hover:-translate-x-1 md:hover:-translate-y-1 cursor-alias"
           />
         </motion.div>
       </div>

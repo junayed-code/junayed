@@ -1,9 +1,7 @@
 import Section from "@components/section";
-import projects from "@/data/projects";
-import ProjectCard from "@components/project-card";
-import ScrollParallax from "@components/animate/scroll-parallax";
+import Projects from "@components/projects";
 
-export default function Projects() {
+export default async function ProjectsSection() {
   return (
     <Section id="projects">
       <h2 className="text-3xl sm:text-4xl text-slate-100 font-bold font-secondary text-center mb-4">
@@ -13,12 +11,7 @@ export default function Projects() {
         These are some of my completed projects, with more to come in the
         future.
       </p>
-
-      <ScrollParallax>
-        {projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
-        ))}
-      </ScrollParallax>
+      <Projects />
     </Section>
   );
 }
