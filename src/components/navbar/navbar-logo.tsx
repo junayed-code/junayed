@@ -8,18 +8,9 @@ function NavbarLogo() {
   return (
     <Link href="/">
       <motion.div
-        transition={{
-          delay: 0.9,
-          duration: 0.3,
-          ease: [0, 0.8, 0.2, 0.6],
-          scale: {
-            type: "spring",
-            stiffness: 100,
-            damping: 5,
-          },
-        }}
-        initial={{ opacity: 0, scale: 0.2 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
       >
         <Image
           src={logoImage}

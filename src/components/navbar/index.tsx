@@ -5,6 +5,8 @@ import React from "react";
 import NavbarLogo from "./navbar-logo";
 import NavbarItems from "./navbar-items";
 import NavbarHeader from "./navbar-header";
+import NavbarToggleButton from "./navbar-toggle-button"; 
+import Container from "@components/container";
 
 import { cn } from "@/utils";
 import styles from "./styles.module.scss";
@@ -13,7 +15,7 @@ export default function Navbar() {
   const [isOpenMenu, setOpenMenu] = React.useState(false);
 
   const handleToggleMenu = () => {
-    setOpenMenu((prev) => {
+    setOpenMenu(prev => {
       if (!prev) {
         document.body.classList.add("sm:pr-[17px]");
         document.documentElement.classList.add("overflow-hidden");
@@ -27,60 +29,52 @@ export default function Navbar() {
 
   return (
     <NavbarHeader>
-      <nav className="flex items-center justify-between px-5 py-4 md:max-w-4xl lg:max-w-[1110px] mx-auto">
-        <div>
-          <NavbarLogo />
-        </div>
+      <Container
+        asChild
+        className="flex h-[var(--nav-height)] items-center justify-between py-4"
+      >
+        <nav>
+          <div>
+            <NavbarLogo />
+          </div>
 
-        <div>
-          {/* Nav menu toggle button */}
-          <NavbarToggleButton
-            onClick={handleToggleMenu}
-            className={cn(isOpenMenu && `sm:pr-[17px] ${styles.open}`)}
-          />
+          <div>
+            {/* Nav menu toggle button */}
+            <NavbarToggleButton
+              onClick={handleToggleMenu}
+              className={cn(isOpenMenu && `sm:pr-[17px] ${styles.open}`)}
+            />
 
-          <NavbarOverlay
-            className={cn(
-              !isOpenMenu && "invisible opacity-0 pointer-events-none"
-            )}
-          />
+            <NavbarOverlay
+              className={cn(
+                !isOpenMenu && "pointer-events-none invisible opacity-0",
+              )}
+            />
 
-          {/* Nav desktop menu items */}
-          <NavbarItems className="hidden md:flex items-center gap-7 font-medium" />
+            {/* Nav desktop menu items */}
+            <NavbarItems className="hidden items-center gap-7 font-medium md:flex" />
 
-          {/* Nav mobile menu items */}
-          <NavbarItems
-            onClick={handleToggleMenu}
-            className={cn(
-              "md:hidden fixed top-0 right-0 h-screen w-80 bg-slate-900 flex flex-col items-center gap-7 font-medium p-6 pt-28  z-20 duration-200",
-              isOpenMenu ? "translate-x-0" : "translate-x-full"
-            )}
-          />
-        </div>
-      </nav>
+            {/* Nav mobile menu items */}
+            <NavbarItems
+              onClick={handleToggleMenu}
+              className={cn(
+                "fixed right-0 top-0 z-20 flex h-screen w-80 flex-col items-center gap-7 bg-primary-950 p-6 pt-28 font-medium duration-200 md:hidden",
+                isOpenMenu ? "translate-x-0" : "translate-x-full",
+              )}
+            />
+          </div>
+        </nav>
+      </Container>
     </NavbarHeader>
   );
 }
-
-type NavbarToggleButtonProps = React.HTMLAttributes<HTMLDivElement>;
-const NavbarToggleButton = ({
-  className,
-  ...props
-}: NavbarToggleButtonProps) => {
-  return (
-    <div className={cn("md:!hidden z-40", styles.berger, className)} {...props}>
-      <span></span>
-      <span></span>
-    </div>
-  );
-};
 
 const NavbarOverlay = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        "absolute inset-0 w-full h-screen bg-slate-900/70",
-        className
+        "absolute inset-0 h-screen w-full bg-primary-950/70",
+        className,
       )}
     />
   );

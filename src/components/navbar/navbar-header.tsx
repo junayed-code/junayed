@@ -15,9 +15,9 @@ function NavbarHeader({ className, ...props }: NavbarHeaderProps) {
     <header
       {...props}
       className={cn(
-        "fixed top-0 left-0 w-full backdrop-blur-xl transition-transform duration-200 z-50",
+        "fixed left-0 top-0 z-50 w-full backdrop-blur-xl transition-transform duration-200",
         isDown ? "-translate-y-full" : "translate-y-0",
-        className
+        className,
       )}
     />
   );

@@ -1,26 +1,23 @@
-import Link from "next/link";
-import { motion } from "framer-motion";
-import type { Variants, Transition } from "framer-motion";
-
-import { Button } from "@ui/button";
-
+import { motion, type Variants } from "framer-motion";
 import config from "@/config";
 
-const variants: Variants = {
-  start: {
-    y: 8,
-    opacity: 0,
-    rotate: -15,
-    transformOrigin: "center left",
-  },
+const listVariants: Variants = {
   end: {
-    y: 0,
-    rotate: 0,
-    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
-const transition: Transition = { duration: 0.4, ease: "easeOut" };
+const itemVariants: Variants = {
+  start: {
+    y: -8,
+    opacity: 0,
+  },
+  end: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.25, ease: "easeOut" },
+  },
+};
 
 type NavItemsProps = {
   className?: string;
@@ -29,34 +26,20 @@ type NavItemsProps = {
 
 const NavbarItems = ({ className, onClick }: NavItemsProps) => {
   return (
-    <ul className={className}>
-      {config.navItems.map((item, i) => (
-        <motion.li
-          key={item.path}
-          variants={variants}
-          onClick={onClick}
-          initial="start"
-          animate="end"
-          transition={{ ...transition, delay: 0.15 * i }}
-        >
+    <motion.ul
+      animate="end"
+      initial="start"
+      className={className}
+      variants={listVariants}
+    >
+      {config.navItems.map(item => (
+        <motion.li key={item.path} variants={itemVariants} onClick={onClick}>
           <a href={item.path} className="hover:text-primary">
             {item.text}
           </a>
         </motion.li>
       ))}
-      <motion.li
-        variants={variants}
-        initial="start"
-        animate="end"
-        transition={{ ...transition, delay: 0.45 }}
-      >
-        <Button asChild>
-          <Link onClick={onClick} href="/resume.pdf" target="_blank">
-            Resume
-          </Link>
-        </Button>
-      </motion.li>
-    </ul>
+    </motion.ul>
   );
 };
 
