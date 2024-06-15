@@ -8,6 +8,7 @@ export namespace Modals {
     id: string;
     name: string;
     live: string;
+    github: string;
     image: ProjectImage[];
     description: string;
     technologies: string[];
@@ -32,11 +33,11 @@ export namespace Notion {
     T extends "page-object"
       ? NAEP.PageObjectResponse
       : T extends "partial-page-object"
-      ? NAEP.PartialPageObjectResponse
-      : T extends "partial-database-object"
-      ? NAEP.PartialDatabaseObjectResponse
-      : T extends "database-object"
-      ? NAEP.DatabaseObjectResponse
-      : never
+        ? NAEP.PartialPageObjectResponse
+        : T extends "partial-database-object"
+          ? NAEP.PartialDatabaseObjectResponse
+          : T extends "database-object"
+            ? NAEP.DatabaseObjectResponse
+            : never
   >;
 }

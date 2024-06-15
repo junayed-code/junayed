@@ -1,21 +1,18 @@
-import { getProjects } from "@db/notion";
+import { getProjects } from "@/db/notion";
 import Project from "@components/project";
-import ScrollParallax from "@components/animate/scroll-parallax";
 
 async function Projects() {
-  // Get only 5 projects from the notion and
-  // sort them in ascending order according to the index number.
   const projects = await getProjects({
-    page_size: 5,
+    page_size: 6,
     sorts: [{ property: "index", direction: "ascending" }],
   });
 
   return (
-    <ScrollParallax>
-      {projects.map((project) => (
-        <Project key={project.id} project={project} />
+    <div className="mt-14 grid grid-cols-[repeat(auto-fit,minmax(var(--min),1fr))] justify-center gap-6 [--min:340px] xs:[--min:360px]">
+      {projects.map((project, i) => (
+        <Project key={project.id} project={project} index={i} />
       ))}
-    </ScrollParallax>
+    </div>
   );
 }
 
