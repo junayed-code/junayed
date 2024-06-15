@@ -2,26 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
 @layer base {
   :root {
-    --background: 222, 50%, 12%;
-    --foreground: 215, 20%, 65%;
+    /* colors */
+    --background: 136 52% 6%;
+    --foreground: 216 12% 84%;
+
+    --primary: 138 60% 61%;
+    --primary-50: 139 100% 94%;
+    --primary-100: 139 85% 90%;
+    --primary-200: 138 82% 85%;
+    --primary-300: 138 77% 78%;
+    --primary-400: 138 71% 71%;
+    --primary-500: 138 60% 61%;
+    --primary-600: 138 46% 49%;
+    --primary-700: 138 51% 37%;
+    --primary-800: 138 53% 26%;
+    --primary-900: 138 54% 16%;
+    --primary-950: 136 52% 6%;
+    --primary-foreground: 210 40% 95%;
+
+    --secondary: 206 41% 60%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 158, 64%, 52%;
-    --primary-foreground: 210 40% 95%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -36,37 +44,9 @@ html {
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
+    /* typography */
     --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --nav-height: 4.75rem;
   }
 }
 
@@ -74,16 +54,29 @@ html {
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-neutral-300 antialiased;
   }
-}
 
-@layer utilities {
-  .animation-duration-20 {
-    animation-duration: 20s !important;
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-secondary text-neutral-100;
   }
-  .animation-duration-6 {
-    animation-duration: 6s !important;
+  h1 {
+    @apply text-4xl font-black xs:text-5xl md:text-6xl;
+  }
+  h2 {
+    @apply mb-4 text-2xl font-bold xs:text-3xl sm:text-4xl;
+  }
+  h3 {
+    @apply mb-3 text-lg font-bold xs:text-xl md:text-2xl;
+  }
+  h4 {
+    @apply mb-2 font-bold xs:text-lg;
   }
 }
