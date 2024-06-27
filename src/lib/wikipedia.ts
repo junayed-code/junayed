@@ -9,7 +9,12 @@ const WIKI_PARAMS = new URLSearchParams({
   formatversion: "2",
 });
 
-async function getInfoFromWikipedia(title: string): Promise<string> {
+function parseTitleFromURL(url: string) {
+  return url.split("/wiki/")[1];
+}
+
+async function getInfoFromWikipedia(url: string): Promise<string> {
+  const title = parseTitleFromURL(url);
   WIKI_PARAMS.set("titles", title);
   const input = `${WIKI_ENDPOINT}?${WIKI_PARAMS.toString()}`;
 
