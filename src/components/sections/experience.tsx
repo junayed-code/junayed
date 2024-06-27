@@ -2,14 +2,18 @@ import Skills from "@components/skills";
 import Section from "@components/section";
 import Container from "@components/container";
 
-import { getInfoFromWikipedia } from "@/lib/wikipedia";
-import config from "@/config";
+import { notion } from "@lib/notion";
+import { getInfoFromWikipedia } from "@lib/wikipedia";
 
 export default async function Experience() {
+  const { results } = await notion.db.query("skills", {
+    page_size: 15,
+    sorts: [{ property: "index", direction: "ascending" }],
+  });
   const skills = await Promise.all(
-    config.skills.map(async skill => {
-      const info = await getInfoFromWikipedia(skill.wikiTitle);
-      return { ...skill, info };
+    results.map(async ({ id, properties }) => {
+      const info = await getInfoFromWikipedia(properties.wikipedia);
+      return { id, info, ...properties };
     }),
   );
 
@@ -24,7 +28,7 @@ export default async function Experience() {
           journey as a developer. Through these skills, I have gained a
           competitive edge and the ability to work efficiently.
         </p>
-        <Skills skills={skills} />
+        <Skills skills={skills as any[]} />
       </Container>
     </Section>
   );

@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import type { Modals } from "@/types";
-import { type Variants, motion, useInView } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { type Variants, motion, useInView } from "framer-motion";
 
 type ProjectProps = { project: Modals.Project; index: number };
 
@@ -22,15 +22,14 @@ const Project = ({ project, index }: ProjectProps) => {
   const isView = useInView(projectRef, { once: true, amount: 0.1 });
 
   const { name, image, live, description, technologies, github } = project;
-  const [img1] = image;
   const imgProps: React.ComponentPropsWithoutRef<typeof Image> = {
-    src: img1.url,
+    src: image.url,
     alt: name,
     width: 1200,
     height: 675,
     priority: true,
-    ...(img1.blurUrl
-      ? { placeholder: "blur", blurDataURL: img1.blurUrl }
+    ...(image.blurUrl
+      ? { placeholder: "blur", blurDataURL: image.blurUrl }
       : undefined),
   };
 

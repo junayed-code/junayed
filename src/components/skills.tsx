@@ -13,10 +13,11 @@ import {
 } from "@ui/tooltip";
 
 type SkillProps = {
+  id: string;
   name: string;
   icon: string;
   info: string;
-  wikiTitle: string;
+  wikipedia: string;
 };
 type SkillsProps = {
   skills: SkillProps[];
@@ -32,7 +33,7 @@ function Skills({ skills }: SkillsProps) {
     <div className="relative mt-10 grid grid-cols-[repeat(var(--columns),var(--size))] justify-center gap-5 [--columns:2] [--size:1fr] sm:[--size:180px] md:[--columns:3]">
       <TooltipProvider delayDuration={300}>
         {_skills.map(skill => (
-          <Skill key={skill.name} {...skill} />
+          <Skill key={skill.id} {...skill} />
         ))}
       </TooltipProvider>
 
@@ -45,15 +46,15 @@ function Skills({ skills }: SkillsProps) {
   );
 }
 
-const Skill = ({ name, icon, info, wikiTitle }: SkillProps) => {
+const Skill = ({ name, icon, info, wikipedia }: SkillProps) => {
   return (
     <div className="rounded-md border border-primary-900 p-3 transition-transform duration-200 hover:-translate-y-1 hover:scale-105">
       <div className="flex items-start justify-between">
         {/* Skill icon */}
         <img
-          className="aspect-square w-10 object-cover"
-          src={icon}
           alt={name}
+          src={`https://skillicons.dev/icons?i=${icon}`}
+          className="aspect-square w-10 object-cover"
         />
         {/* Skill info tooltip */}
         <Tooltip>
@@ -65,8 +66,8 @@ const Skill = ({ name, icon, info, wikiTitle }: SkillProps) => {
               {info}{" "}
               <a
                 target="_blank"
+                href={wikipedia}
                 className="text-primary-600 hover:text-primary-700"
-                href={`https://en.wikipedia.org/wiki/${wikiTitle}`}
               >
                 Wikipedia
               </a>
