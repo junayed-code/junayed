@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { Button } from "@ui/button";
@@ -62,9 +61,9 @@ export default function Hero() {
             <a href="#projects">Projects</a>
           </Button>
           <Button size="xl" variant="outline" asChild>
-            <Link href="/resume.pdf" target="_blank">
+            <a href="/resume.pdf" target="_blank" rel="noreferrer noopener">
               Resume
-            </Link>
+            </a>
           </Button>
         </motion.div>
       </Container>
