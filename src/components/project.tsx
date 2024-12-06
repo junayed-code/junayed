@@ -23,14 +23,11 @@ const Project = ({ project, index }: ProjectProps) => {
 
   const { name, image, live, description, technologies, github } = project;
   const imgProps: React.ComponentPropsWithoutRef<typeof Image> = {
-    src: image.url,
+    src: image,
     alt: name,
     width: 1200,
     height: 675,
     priority: true,
-    ...(image.blurUrl
-      ? { placeholder: "blur", blurDataURL: image.blurUrl }
-      : undefined),
   };
 
   return (
