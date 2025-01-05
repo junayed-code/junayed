@@ -5,9 +5,8 @@ import colors from "tailwindcss/colors";
 const config = {
   darkMode: ["class"],
   content: [
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   prefix: "",
   theme: {

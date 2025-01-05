@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <Section className="relative flex min-h-screen flex-col justify-center md:py-[calc(7rem+var(--nav-height))] lg:min-h-0 lg:py-[calc(8rem+var(--nav-height))]">
       {/* Rectangular background */}
-      <div className="absolute top-0 -z-[1] h-full w-full bg-rectangle-50 before:absolute before:top-0 before:h-full before:w-full before:bg-gradient-overlay after:absolute after:top-0 after:h-full after:w-full after:backdrop-blur-[0.145px] md:bg-rectangle-100" />
+      <div className="bg-rectangle-50 before:bg-gradient-overlay md:bg-rectangle-100 absolute top-0 -z-[1] h-full w-full before:absolute before:top-0 before:h-full before:w-full after:absolute after:top-0 after:h-full after:w-full after:backdrop-blur-[0.145px]" />
 
       {/* Section container */}
       <Container className="text-center">
@@ -20,7 +20,7 @@ export default function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
-          className="block font-secondary text-xl font-semibold text-primary"
+          className="font-secondary text-primary block text-xl font-semibold"
         >
           Hi there, my name is
         </motion.samp>
@@ -28,7 +28,7 @@ export default function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.15 }}
-          className="mb-2 font-secondary text-neutral-100 xs:mb-3"
+          className="font-secondary xs:mb-3 mb-2 text-neutral-100"
         >
           <strong>Junayed Akbor</strong>
         </motion.h1>
@@ -36,7 +36,7 @@ export default function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.25 }}
-          className="mb-5 font-primary font-medium text-neutral-200"
+          className="font-primary mb-5 font-medium text-neutral-200"
         >
           <strong>{config.title}</strong>
         </motion.h3>

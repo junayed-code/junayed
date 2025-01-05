@@ -1,0 +1,20 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env.local", "!README.md"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": [
+        "GMAIL_USER",
+        "GMAIL_PASS",
+        "RECEIVER_EMAIL",
+        "NOTION_SECRET",
+        "NOTION_PROJECTS_DB_ID",
+        "NOTION_SECTIONS_DB_ID",
+        "NOTION_SKILLS_DB_ID"
+      ]
+    }
+  }
+}
